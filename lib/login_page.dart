@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_third/blog_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -23,7 +24,12 @@ class LoginPage extends StatelessWidget {
                 ),
                 Image.asset("images/welcome.png"),
                 ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => BlogPage()),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.blueGrey[900],
                       minimumSize: Size(250, 45),
