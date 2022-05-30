@@ -27,6 +27,15 @@ class MyApp extends StatelessWidget {
                         fontSize: 25),
                   ),
                   Image.asset("images/welcome.png"),
+                  ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.blueGrey[900],
+                        minimumSize: Size(250, 45),
+                        elevation: 1,
+                      ),
+                      child: Text('Sign In')),
+                  SizedBox(height: 10),
                   TextButton(
                     style: TextButton.styleFrom(
                         backgroundColor: Colors.blueGrey[100],
