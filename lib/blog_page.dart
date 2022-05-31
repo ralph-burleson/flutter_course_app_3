@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'custom_widgets/blog_widget.dart';
 
 class BlogPage extends StatelessWidget {
   const BlogPage({Key? key}) : super(key: key);
@@ -21,30 +22,47 @@ class BlogPage extends StatelessWidget {
           elevation: 0,
           iconTheme: IconThemeData(color: Colors.black),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                child: Image.asset('images/rich.png', fit: BoxFit.cover),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20.0),
-                  color: Colors.black.withOpacity(0.05),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                WidgetBlog(
+                    imagePath: 'images/house.png',
+                    title: 'This is the house',
+                    detail: 'House detail goes here'),
+                WidgetBlog(
+                    imagePath: 'images/rich.png',
+                    title: 'This guy is rich',
+                    detail: 'Rich guy goes here'),
+                WidgetBlog(
+                    imagePath: 'images/apps.png',
+                    title: 'This is a nice app',
+                    detail: 'Nice app goes here'),
+                TextButton(
+                  onPressed: () {
+                    print('Terms & Conditions');
+                  },
+                  child: Text('Terms & Conditions'),
+                  style: TextButton.styleFrom(
+                    primary: Colors.blueGrey[900],
+                    minimumSize: Size(double.infinity, 45),
+                  ),
                 ),
-                height: 200,
-                width: double.infinity,
-              ),
-              SizedBox(height: 10),
-              Text(
-                'Top 10 tips to retire at 40 years old',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-              Text(
-                'The best tips to retire early',
-                style: TextStyle(fontSize: 16),
-              ),
-            ],
+                TextButton(
+                  onPressed: () {
+                    print('Sign Out');
+                    Navigator.pop(context);
+                  },
+                  child: Text('Sign Out'),
+                  style: TextButton.styleFrom(
+                    primary: Colors.red,
+                    minimumSize: Size(double.infinity, 45),
+                  ),
+                )
+              ],
+            ),
           ),
         ));
   }
