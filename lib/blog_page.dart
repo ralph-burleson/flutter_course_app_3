@@ -2,7 +2,21 @@ import 'package:flutter/material.dart';
 import 'custom_widgets/blog_widget.dart';
 
 class BlogPage extends StatelessWidget {
-  const BlogPage({Key? key}) : super(key: key);
+  BlogPage({Key? key}) : super(key: key);
+  List<Widget> blogWidgetList = [
+    WidgetBlog(
+        imagePath: 'images/house.png',
+        title: 'We think This is the house',
+        detail: 'House detail goes here'),
+    WidgetBlog(
+        imagePath: 'images/rich.png',
+        title: 'This guy is rich.',
+        detail: 'Rich guy goes here'),
+    WidgetBlog(
+        imagePath: 'images/apps.png',
+        title: 'This is a nice app',
+        detail: 'Nice app goes here'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -28,18 +42,7 @@ class BlogPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                WidgetBlog(
-                    imagePath: 'images/house.png',
-                    title: 'This is the house',
-                    detail: 'House detail goes here'),
-                WidgetBlog(
-                    imagePath: 'images/rich.png',
-                    title: 'This guy is rich',
-                    detail: 'Rich guy goes here'),
-                WidgetBlog(
-                    imagePath: 'images/apps.png',
-                    title: 'This is a nice app',
-                    detail: 'Nice app goes here'),
+                ...blogWidgetList,
                 TextButton(
                   onPressed: () {
                     print('Terms & Conditions');
