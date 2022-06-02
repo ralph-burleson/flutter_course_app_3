@@ -2,21 +2,29 @@ import 'package:flutter/material.dart';
 import 'custom_widgets/blog_widget.dart';
 
 class BlogPage extends StatelessWidget {
-  BlogPage({Key? key}) : super(key: key);
-  List<Widget> blogWidgetList = [
-    WidgetBlog(
-        imagePath: 'images/house.png',
-        title: 'We think This is the house',
-        detail: 'House detail goes here'),
-    WidgetBlog(
-        imagePath: 'images/rich.png',
-        title: 'This guy is rich.',
-        detail: 'Rich guy goes here'),
-    WidgetBlog(
-        imagePath: 'images/apps.png',
-        title: 'This is a nice app',
-        detail: 'Nice app goes here'),
-  ];
+  final String dataFromLoginPage;
+  //BlogPage({required this.dataFromLoginPage});
+  BlogPage({Key? key, required this.dataFromLoginPage}) : super(key: key);
+  List<Widget> blogWidgetList({required BuildContext context}) => [
+        WidgetBlog(
+          imagePath: 'images/house.png',
+          title: 'We think This is the house',
+          detail: 'House detail goes here',
+          context: context,
+        ),
+        WidgetBlog(
+          imagePath: 'images/rich.png',
+          title: 'This guy is rich.',
+          detail: 'Rich guy goes here',
+          context: context,
+        ),
+        WidgetBlog(
+          imagePath: 'images/apps.png',
+          title: 'This is a nice app',
+          detail: 'Nice app goes here',
+          context: context,
+        ),
+      ];
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +33,7 @@ class BlogPage extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.white,
           title: Text(
-            'Blog Page',
+            dataFromLoginPage,
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 letterSpacing: 2.0,
@@ -42,7 +50,7 @@ class BlogPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ...blogWidgetList,
+                ...blogWidgetList(context: context),
                 TextButton(
                   onPressed: () {
                     print('Terms & Conditions');
